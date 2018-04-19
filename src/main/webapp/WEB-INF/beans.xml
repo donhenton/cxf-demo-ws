@@ -7,11 +7,16 @@
         http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
         <import resource="classpath:META-INF/cxf/cxf.xml" />
-
+<!--
         <jaxws:endpoint 
           id="helloWorld" 
           implementor="com.dhenton9000.cxf.demo.ws.HelloWorldPortTypeImpl" 
-      wsdlLocation="WEB-INF/wsdl/HelloWorld.wsdl"
+          wsdlLocation="WEB-INF/wsdl/HelloWorld.wsdl"
           address="/HelloWorld" />
-          
+          -->
+          <jaxws:endpoint 
+          id="admission" 
+          implementor="com.dhenton9000.cxf.demo.ws.AdmissionServicePortTypeImpl" 
+          wsdlLocation="WEB-INF/wsdl/AdmissionService.wsdl"
+          address="/AdmissionService" />
 </beans>

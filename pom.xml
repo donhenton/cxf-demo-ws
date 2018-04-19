@@ -46,9 +46,13 @@
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>
-                                       src/main/webapp/WEB-INF/wsdl/HelloWorld.wsdl
+                                      <!-- src/main/webapp/WEB-INF/wsdl/HelloWorld.wsdl -->
+                                      src/main/webapp/WEB-INF/wsdl/AdmissionService.wsdl
                                     </wsdl>
-                                    <wsdlLocation>classpath:HelloWorld.wsdl</wsdlLocation>
+                                    <wsdlLocation>
+                                     <!--   classpath:HelloWorld.wsdl -->
+                                     classpath:AdmissionService.wsdl
+                                    </wsdlLocation>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>
@@ -69,6 +73,9 @@
                     concatenation of the two: http://xxx/yyy?wsdl
                     http://localhost:8080/cxf-demo-ws/HelloWorld endpoint
                     http://localhost:8080/cxf-demo-ws/HelloWorld?wsdl
+                    http://localhost:8080/cxf-demo-ws/AdmissionService?wsdl
+                    
+
                     -->
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>

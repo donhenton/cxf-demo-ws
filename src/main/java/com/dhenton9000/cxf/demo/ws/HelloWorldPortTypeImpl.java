@@ -1,8 +1,13 @@
 package com.dhenton9000.cxf.demo.ws;
-import javax.jws.WebService;
-import org.apache.contract.helloworld.HelloWorldPortType;
+//import javax.jws.WebService;
+//import org.apache.contract.helloworld.HelloWorldPortType;
  
+public class HelloWorldPortTypeImpl {
 
+}
+
+
+/*
 @WebService(targetNamespace = "http://www.apache.org/contract/HelloWorld",
     portName="HelloWorldPort",
     serviceName="HelloWorldService",
@@ -15,3 +20,4 @@ public class HelloWorldPortTypeImpl implements HelloWorldPortType {
     }
 }
 
+*/
