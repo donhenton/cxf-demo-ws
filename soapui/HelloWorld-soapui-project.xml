@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ccbca815-58ba-4362-8523-48bcfa79d2f5" activeEnvironment="Default" name="/HelloWorld" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="31215063-d50a-42a2-8a90-1ada1dea56f0" wsaVersion="NONE" name="HelloWorldBinding" type="wsdl" bindingName="{http://www.apache.org/contract/HelloWorld}HelloWorldBinding" soapVersion="1_1" anonymous="optional" definition="file:/Users/dhh003/NetBeansProjects/cxf/cxf-demo-ws/src/main/webapp/WEB-INF/wsdl/HelloWorld.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/Users/dhh003/NetBeansProjects/cxf/cxf-demo-ws/src/main/webapp/WEB-INF/wsdl/HelloWorld.wsdl"><con:part><con:url>file:/Users/dhh003/NetBeansProjects/cxf/cxf-demo-ws/src/main/webapp/WEB-INF/wsdl/HelloWorld.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="HelloWorld" targetNamespace="http://www.apache.org/contract/HelloWorld" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.apache.org/contract/HelloWorld" xmlns:x1="http://www.apache.org/schema/HelloWorld" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema targetNamespace="http://www.apache.org/schema/HelloWorld" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.apache.org/schema/HelloWorld">
+      <element name="sayHi">
+        <complexType>
+          <sequence>
+            <element name="requestType" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="sayHiResponse">
+        <complexType>
+          <sequence>
+            <element name="responseType" type="string"/>
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="sayHiRequest">
+    <wsdl:part element="x1:sayHi" name="in"/>
+  </wsdl:message>
+  <wsdl:message name="sayHiResponse">
+    <wsdl:part element="x1:sayHiResponse" name="out"/>
+  </wsdl:message>
+  <wsdl:portType name="HelloWorldPortType">
+    <wsdl:operation name="sayHi">
+      <wsdl:input message="tns:sayHiRequest" name="sayHiRequest"/>
+      <wsdl:output message="tns:sayHiResponse" name="sayHiResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HelloWorldBinding" type="tns:HelloWorldPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sayHi">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sayHiRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sayHiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloWorldService">
+    <wsdl:port name="HelloWorldPort" binding="tns:HelloWorldBinding">
+      <!--Actual soap:address value is dynamically generated after deployment-->
+      <soap:address location="http://dummy.value"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://dummy.value</con:endpoint></con:endpoints><con:operation id="81ae0d89-8452-4d11-b1f0-9408f120de5d" isOneWay="false" action="" name="sayHi" bindingOperationName="sayHi" type="Request-Response" outputName="sayHiResponse" inputName="sayHiRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="799fa2f3-80ca-4bab-8059-ebb69b39a07c" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/HelloWorld</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:hel="http://www.apache.org/schema/HelloWorld">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <hel:sayHi>
+         <hel:requestType>Bonzo</hel:requestType>
+      </hel:sayHi>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.apache.org/contract/HelloWorld/HelloWorldPortType/sayHiRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
