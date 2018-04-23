@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dhenton9000.birt.configs;
+package com.dhenton9000.jpa.configs;
 
  
 import java.net.URI;
@@ -32,7 +32,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //https://github.com/netgloo/spring-boot-samples/tree/master/spring-boot-mysql-jpa-hibernate
 @Configuration
 @PropertySource("classpath:test.properties")
-@EnableJpaRepositories(basePackages = "com.dhenton9000.birt.jpa")
+@EnableJpaRepositories(basePackages = "com.dhenton9000.jpa")
 @EnableTransactionManagement
 public class DatabaseConfig {
 

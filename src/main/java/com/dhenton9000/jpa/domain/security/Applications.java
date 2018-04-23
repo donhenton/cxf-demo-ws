@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dhenton9000.birt.jpa.domain.security;
+package com.dhenton9000.jpa.domain.security;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

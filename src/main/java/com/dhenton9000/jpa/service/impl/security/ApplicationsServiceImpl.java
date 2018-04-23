@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dhenton9000.birt.jpa.service.impl.security;
+package com.dhenton9000.jpa.service.impl.security;
 
 
-import com.dhenton9000.birt.jpa.domain.security.Applications;
-import com.dhenton9000.birt.jpa.repositories.security.ApplicationsRepository;
-import com.dhenton9000.birt.jpa.service.security.ApplicationsService;
+import com.dhenton9000.jpa.domain.security.Applications;
+import com.dhenton9000.jpa.repositories.security.ApplicationsRepository;
+import com.dhenton9000.jpa.service.security.ApplicationsService;
 import com.dhenton9000.jpa.util.EntityUtils;
 import com.dhenton9000.jpa.util.ResourceNotFoundException;
 import java.util.List;

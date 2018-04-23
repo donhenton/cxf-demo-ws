@@ -10,7 +10,7 @@
 
         <import resource="classpath:META-INF/cxf/cxf.xml" />
         
-        <context:component-scan base-package="com.dhenton9000.birt" />
+        <context:component-scan base-package="com.dhenton9000.jpa" />
 
           <jaxws:endpoint 
           id="securityService" 

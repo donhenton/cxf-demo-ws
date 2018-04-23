@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dhenton9000.birt.jpa.service.security;
+package com.dhenton9000.jpa.service.security;
 
-import com.dhenton9000.birt.jpa.domain.security.Applications;
+import com.dhenton9000.jpa.domain.security.Applications;
 import java.util.List;
 
 /**

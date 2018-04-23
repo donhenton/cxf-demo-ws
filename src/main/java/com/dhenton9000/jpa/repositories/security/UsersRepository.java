@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dhenton9000.birt.jpa.repositories.security;
+package com.dhenton9000.jpa.repositories.security;
 
-import com.dhenton9000.birt.jpa.domain.security.Groups;
+ 
+import com.dhenton9000.jpa.domain.security.Users;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -17,8 +18,8 @@ import org.springframework.stereotype.Repository;
  * @author dhenton
  */
 @Repository
-public interface GroupsRepository extends CrudRepository<Groups,Integer>{
-     
-     @Query("SELECT g FROM Groups g WHERE g.groupName = :groupName")
-    List<Groups> findByName(@Param("groupName") String groupName);
+public interface UsersRepository extends CrudRepository<Users,Integer>{
+    
+      @Query("SELECT u FROM Users u WHERE u.login = :login")
+    Users findByLogin(@Param("login") String login);
 }

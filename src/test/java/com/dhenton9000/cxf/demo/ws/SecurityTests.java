@@ -6,13 +6,13 @@
 package com.dhenton9000.cxf.demo.ws;
 
 import com.dhenton9000.cxf.demo.ws.config.SecurityConfig;
-import com.dhenton9000.birt.configs.DatabaseConfig;
-import com.dhenton9000.birt.jpa.domain.security.Applications;
-import com.dhenton9000.birt.jpa.domain.security.Groups;
-import com.dhenton9000.birt.jpa.domain.security.Users;
-import com.dhenton9000.birt.jpa.service.security.ApplicationsService;
-import com.dhenton9000.birt.jpa.service.security.GroupsService;
-import com.dhenton9000.birt.jpa.service.security.UsersService;
+import com.dhenton9000.jpa.configs.DatabaseConfig;
+import com.dhenton9000.jpa.domain.security.Applications;
+import com.dhenton9000.jpa.domain.security.Groups;
+import com.dhenton9000.jpa.domain.security.Users;
+import com.dhenton9000.jpa.service.security.ApplicationsService;
+import com.dhenton9000.jpa.service.security.GroupsService;
+import com.dhenton9000.jpa.service.security.UsersService;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.EntityManager;

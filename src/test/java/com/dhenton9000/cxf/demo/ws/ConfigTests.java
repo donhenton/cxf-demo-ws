@@ -6,7 +6,7 @@
 package com.dhenton9000.cxf.demo.ws;
 
  
-import com.dhenton9000.birt.configs.DatabaseConfig;
+import com.dhenton9000.jpa.configs.DatabaseConfig;
 import com.dhenton9000.cxf.demo.ws.config.SecurityConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,11 +1,11 @@
 package com.dhenton9000.cxf.ws.sec;
 
-import com.dhenton9000.birt.jpa.domain.security.Applications;
-import com.dhenton9000.birt.jpa.domain.security.Groups;
-import com.dhenton9000.birt.jpa.domain.security.Users;
-import com.dhenton9000.birt.jpa.service.security.ApplicationsService;
-import com.dhenton9000.birt.jpa.service.security.GroupsService;
-import com.dhenton9000.birt.jpa.service.security.UsersService;
+import com.dhenton9000.jpa.domain.security.Applications;
+import com.dhenton9000.jpa.domain.security.Groups;
+import com.dhenton9000.jpa.domain.security.Users;
+import com.dhenton9000.jpa.service.security.ApplicationsService;
+import com.dhenton9000.jpa.service.security.GroupsService;
+import com.dhenton9000.jpa.service.security.UsersService;
 import com.dhenton9000.sec.contract.securityservice.SecurityServiceWSDL;
 import com.dhenton9000.sec.schema.securityservice.ApplicationsListType;
 import com.dhenton9000.sec.schema.securityservice.ApplicationsType;
