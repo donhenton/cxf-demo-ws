@@ -111,7 +111,7 @@ public class SecurityServiceImpl implements SecurityServiceWSDL {
 
 /*
 
-soap ui payload to call the groups function
+soap ui payload to call the groups function because it is parameterless
 
 <soapenv:Envelope xmlns:ns2="http://dhenton9000.com/sec/schema/SecurityService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header/>
