@@ -31,10 +31,26 @@
     <wsdl:message name="applicationsResponse">
         <wsdl:part element="sec:ApplicationsList" name="outPutParam"/> 
     </wsdl:message>
+    <wsdl:message name="usersResponse">
+        <wsdl:part element="sec:UsersList" name="usersStuff"/> 
+    </wsdl:message>
+    <wsdl:message name="groupsResponse">
+        <wsdl:part element="sec:GroupsList" name="groupsStuff"/> 
+    </wsdl:message>
+    
+    
     <wsdl:portType name="SecurityServiceWSDL">
         <wsdl:operation name="GetApplications">
             <wsdl:input message="tns:emptyRequest"/>
             <wsdl:output message="tns:applicationsResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetUsers">
+            <wsdl:input message="tns:emptyRequest"/>
+            <wsdl:output message="tns:usersResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetGroups">
+            <wsdl:input message="tns:emptyRequest"/>
+            <wsdl:output message="tns:groupsResponse"/>
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="SecurityServiceWSDLSOAP" type="tns:SecurityServiceWSDL">
@@ -48,6 +64,27 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
+        
+        <wsdl:operation name="GetUsers">
+            <soap:operation soapAction="uri:dhenton9000:SecurityService/GetUsers"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetGroups">
+            <soap:operation soapAction="uri:dhenton9000:SecurityService/GetGroups"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        
     </wsdl:binding>
     <wsdl:service name="SecurityServiceWSDL">
         <wsdl:port binding="tns:SecurityServiceWSDLSOAP" name="SecurityServiceWSDLSOAP">
@@ -57,4 +94,4 @@
     
 </wsdl:definitions>
 
-name="HelloWorldPort" binding="tns:HelloWorldBinding">
+ 
