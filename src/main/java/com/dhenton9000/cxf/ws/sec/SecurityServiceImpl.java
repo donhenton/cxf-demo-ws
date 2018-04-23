@@ -50,7 +50,7 @@ public class SecurityServiceImpl implements SecurityServiceWSDL {
 
     @Override
     public GroupsType findGroup(BigInteger id) {
-        Groups a  = groupsService.findOne(id.intValue());
+        Groups a = groupsService.findOne(id.intValue());
         GroupsType e = new GroupsType();
         e.setGroupName(a.getGroupName());
         e.setId(BigInteger.valueOf(a.getId()));
@@ -104,6 +104,40 @@ public class SecurityServiceImpl implements SecurityServiceWSDL {
 
         });
         return groupList;
+    }
+
+    @Override
+    public UsersType deleteUser(UsersType u) {
+
+        Users uParam = new Users();
+        uParam.setLogin(u.getLogin());
+        uParam.setUserid(u.getId().intValue());
+        uParam.setUsername(u.getUsername());
+        Users retParam = usersService.delete(uParam);
+
+        UsersType t = new UsersType();
+        t.setId(BigInteger.valueOf(retParam.getUserid()));
+        t.setLogin(retParam.getLogin());
+        t.setUsername(retParam.getUsername());
+
+        return t;
+    }
+
+    public UsersType saveUser(UsersType u) {
+
+        Users uParam = new Users();
+        uParam.setLogin(u.getLogin());
+        uParam.setUserid(u.getId().intValue());
+        uParam.setUsername(u.getUsername());
+        Users retParam = usersService.save(uParam);
+
+        UsersType t = new UsersType();
+        t.setId(BigInteger.valueOf(retParam.getUserid()));
+        t.setLogin(retParam.getLogin());
+        t.setUsername(retParam.getUsername());
+
+        return t;
+
     }
 
 }

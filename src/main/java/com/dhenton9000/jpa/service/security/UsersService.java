@@ -22,6 +22,6 @@ public interface UsersService {
     List<Applications> findAuthorizedApplications(Integer id);
     List<Groups> findGroupsForUser(Integer id);
     Users save(Users user);
-    void delete(Users user);
+    Users delete(Users user);
     
 }

@@ -37,6 +37,10 @@
         <wsdl:part element="sec:Users" name="outPutParam"/> 
     </wsdl:message>
     
+    <wsdl:message name="singleUserRequest">
+        <wsdl:part element="sec:Users" name="inPutParam"/> 
+    </wsdl:message>
+    
     <wsdl:message name="singleGroupResponse">
         <wsdl:part element="sec:Groups" name="outPutParam"/> 
     </wsdl:message>
@@ -57,6 +61,11 @@
     
     
     <wsdl:portType name="SecurityServiceWSDL">
+        
+        <wsdl:operation name="DeleteUser">
+            <wsdl:input message="tns:singleUserRequest"/>
+            <wsdl:output message="tns:singleUserResponse"/>
+        </wsdl:operation>
         
         
         <wsdl:operation name="FindApplication">
@@ -89,6 +98,21 @@
     </wsdl:portType>
     <wsdl:binding name="SecurityServiceWSDLSOAP" type="tns:SecurityServiceWSDL">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        
+        <wsdl:operation name="DeleteUser">
+            <soap:operation soapAction="uri:dhenton9000:SecurityService/DeleteUser"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        
+        
+        
+        
         <wsdl:operation name="GetApplications">
             <soap:operation soapAction="uri:dhenton9000:SecurityService/GetApplications"/>
             <wsdl:input>

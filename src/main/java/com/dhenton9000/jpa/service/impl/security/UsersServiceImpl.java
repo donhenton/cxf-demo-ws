@@ -78,9 +78,18 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public void delete(Users user) {
-        usersRepository.delete(user);
+    public Users delete(Users user) {
         
+        Users uF = this.findOne(user.getUserid());
+        if (uF != null) {
+            usersRepository.delete(user);
+            return uF;
+        } else {
+            throw new RuntimeException("cannot find user "+user.getUsername()
+                    + " ["+user.getUserid()+"]");
+        }
+        
+         
     }
     
     
