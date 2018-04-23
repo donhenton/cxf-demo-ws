@@ -29,6 +29,35 @@ public class SecurityServiceImpl implements SecurityServiceWSDL {
     GroupsService groupsService;
 
     @Override
+    public ApplicationsType findApplication(BigInteger id) {
+        Applications app = applicationsService.findOne(id.intValue());
+        ApplicationsType e = new ApplicationsType();
+        e.setApplicationName(app.getApplicationName());
+        e.setId(id);
+        return e;
+    }
+
+    @Override
+    public UsersType findUser(BigInteger id) {
+        Users a = usersService.findOne(id.intValue());
+        UsersType e = new UsersType();
+        e.setLogin(a.getLogin());
+        e.setUsername(a.getUsername());
+        e.setId(id);
+
+        return e;
+    }
+
+    @Override
+    public GroupsType findGroup(BigInteger id) {
+        Groups a  = groupsService.findOne(id.intValue());
+        GroupsType e = new GroupsType();
+        e.setGroupName(a.getGroupName());
+        e.setId(BigInteger.valueOf(a.getId()));
+        return e;
+    }
+
+    @Override
     public ApplicationsListType getApplications() {
 
         ApplicationsListType appList = new ApplicationsListType();
@@ -92,4 +121,4 @@ soap ui payload to call the groups function
 </soapenv:Envelope>
 
 
-*/
+ */

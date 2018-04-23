@@ -6,16 +6,40 @@
     </xsd:schema>
   </types>
   <message name="emptyRequest"></message>
+  <message name="singleUserResponse">
+    <part element="sec:Users" name="outPutParam"></part>
+  </message>
+  <message name="idRequest">
+    <part name="idValue" type="xsd:integer"></part>
+  </message>
   <message name="groupsResponse">
     <part element="sec:GroupsList" name="groupsStuff"></part>
   </message>
   <message name="usersResponse">
     <part element="sec:UsersList" name="usersStuff"></part>
   </message>
+  <message name="singleApplicationResponse">
+    <part element="sec:Applications" name="outPutParam"></part>
+  </message>
+  <message name="singleGroupResponse">
+    <part element="sec:Groups" name="outPutParam"></part>
+  </message>
   <message name="applicationsResponse">
     <part element="sec:ApplicationsList" name="outPutParam"></part>
   </message>
   <portType name="SecurityServiceWSDL">
+    <operation name="FindApplication">
+      <input message="tns:idRequest"></input>
+      <output message="tns:singleApplicationResponse"></output>
+    </operation>
+    <operation name="FindGroup">
+      <input message="tns:idRequest"></input>
+      <output message="tns:singleGroupResponse"></output>
+    </operation>
+    <operation name="FindUser">
+      <input message="tns:idRequest"></input>
+      <output message="tns:singleUserResponse"></output>
+    </operation>
     <operation name="GetApplications">
       <input message="tns:emptyRequest"></input>
       <output message="tns:applicationsResponse"></output>
@@ -31,6 +55,33 @@
   </portType>
   <binding name="SecurityServiceWSDLSoapBinding" type="tns:SecurityServiceWSDL">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="FindApplication">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindGroup">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="FindUser">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="GetApplications">
       <soap:operation soapAction="" style="document"/>
       <input>
@@ -143,7 +194,7 @@
 </schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService</con:endpoint></con:endpoints><con:operation id="f1c427cb-eb6f-4e46-a0d0-efec8ca85ecb" isOneWay="false" action="" name="GetApplications" bindingOperationName="GetApplications" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="822100bf-1dd9-4645-a5db-3edca2e8e745" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService/GetUsers</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:ns2="http://dhenton9000.com/sec/schema/SecurityService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header/>
    <soapenv:Body>
-	<ns2:GetGroups />
+	<ns2:GetApplications />
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/GetApplicationsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4d7102d4-cd71-405e-8f83-fcaa8de660ed" isOneWay="false" action="" name="GetUsers" bindingOperationName="GetUsers" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8269475f-7c14-4975-ac2e-3dea985a42a7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:ns2="http://dhenton9000.com/sec/schema/SecurityService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header/>
@@ -155,4 +206,21 @@
    <soapenv:Body>
 	<ns2:GetGroups />
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/GetGroupsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/GetGroupsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="17d4d4be-5f29-4dd5-b8cf-bb542d3f9472" isOneWay="false" action="" name="FindApplication" bindingOperationName="FindApplication" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d3b383e6-33c1-4134-ae61-0ac93fe9ae89" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:ns2="http://dhenton9000.com/sec/schema/SecurityService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      
+         <idValue>42</idValue>
+      
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/FindApplicationRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="28208ed8-1d7a-478e-be8d-d5d7042c50f3" isOneWay="false" action="" name="FindGroup" bindingOperationName="FindGroup" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ae6a3222-ab90-46a0-9051-b2019c3b9f39" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <idValue>4</idValue>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/FindGroupRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="04a554bf-f544-4aa4-8a88-58c67ebf1f4f" isOneWay="false" action="" name="FindUser" bindingOperationName="FindUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="583abd38-8c9a-4ba1-9641-a529ca106bb4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <idValue>?</idValue>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/FindUserRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

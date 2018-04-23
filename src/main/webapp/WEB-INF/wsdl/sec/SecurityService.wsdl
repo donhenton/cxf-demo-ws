@@ -28,6 +28,19 @@
     </wsdl:types>
     
     <wsdl:message name="emptyRequest"></wsdl:message>
+    
+    <wsdl:message name="singleApplicationResponse">
+        <wsdl:part element="sec:Applications" name="outPutParam"/> 
+    </wsdl:message>
+    
+    <wsdl:message name="singleUserResponse">
+        <wsdl:part element="sec:Users" name="outPutParam"/> 
+    </wsdl:message>
+    
+    <wsdl:message name="singleGroupResponse">
+        <wsdl:part element="sec:Groups" name="outPutParam"/> 
+    </wsdl:message>
+    
     <wsdl:message name="applicationsResponse">
         <wsdl:part element="sec:ApplicationsList" name="outPutParam"/> 
     </wsdl:message>
@@ -38,8 +51,29 @@
         <wsdl:part element="sec:GroupsList" name="groupsStuff"/> 
     </wsdl:message>
     
+    <wsdl:message name="idRequest">
+        <wsdl:part type="xsd:integer" name="idValue"/> 
+    </wsdl:message>
+    
     
     <wsdl:portType name="SecurityServiceWSDL">
+        
+        
+        <wsdl:operation name="FindApplication">
+            <wsdl:input message="tns:idRequest"/>
+            <wsdl:output message="tns:singleApplicationResponse"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="FindGroup">
+            <wsdl:input message="tns:idRequest"/>
+            <wsdl:output message="tns:singleGroupResponse"/>
+        </wsdl:operation>
+        
+        <wsdl:operation name="FindUser">
+            <wsdl:input message="tns:idRequest"/>
+            <wsdl:output message="tns:singleUserResponse"/>
+        </wsdl:operation>
+        
         <wsdl:operation name="GetApplications">
             <wsdl:input message="tns:emptyRequest"/>
             <wsdl:output message="tns:applicationsResponse"/>
