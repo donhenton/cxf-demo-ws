@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- https://github.com/donhenton/code-attic/blob/e8588bea7af3d3a168958ae96ea8a476fcb6969f/mule/mule32/MuleWSSandbox/src/main/resources/SecurityService.wsdl -->
+
+
+<wsdl:definitions name="SecurityService" targetNamespace="http://com.dhenton9000/contract/SecurityService"
+                  xmlns="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://com.dhenton9000/contract/SecurityService"
+                  xmlns:x1="http://com.dhenton9000/schema/SecurityService"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:sec="http://com.dhenton9000/schema/SecurityService"
+                  xsi:schemaLocation="http://schemas.xmlsoap.org/wsdl/
+                      http://schemas.xmlsoap.org/wsdl/
+                      http://www.w3.org/2001/XMLSchema
+                      https://www.w3.org/2001/XMLSchema.xsd">
+   
+    <wsdl:types>
+        <xsd:schema
+            targetNamespace="uri:dhenton9000:SecurityService"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://com.dhenton9000/schema/SecurityService"
+                        schemaLocation="SecurityModel.xsd" />
+			 
+        </xsd:schema>
+    </wsdl:types>
+    
+    <wsdl:message name="emptyRequest"></wsdl:message>
+    <wsdl:message name="applicationsResponse">
+        <wsdl:part element="sec:ApplicationsList" name="outPutParam"/> 
+    </wsdl:message>
+    <wsdl:portType name="SecurityServiceWSDL">
+        <wsdl:operation name="GetApplications">
+            <wsdl:input message="tns:emptyRequest"/>
+            <wsdl:output message="tns:applicationsResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SecurityServiceWSDLSOAP" type="tns:SecurityServiceWSDL">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetApplications">
+            <soap:operation soapAction="uri:dhenton9000:SecurityService/GetApplications"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SecurityServiceWSDL">
+        <wsdl:port binding="tns:SecurityServiceWSDLSOAP" name="SecurityServiceWSDLSOAP">
+            <soap:address location="uri:dhenton9000:SecurityService"/>
+        </wsdl:port>
+    </wsdl:service>
+    
+</wsdl:definitions>
+

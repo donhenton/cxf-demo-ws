@@ -113,6 +113,13 @@
             <scope>test</scope>
             <type>jar</type>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>org.glassfish.metro</groupId>
+            <artifactId>webservices-rt</artifactId>
+            <version>2.3</version>
+        </dependency>
+        -->
     </dependencies>
 
     <build>
@@ -130,12 +137,13 @@
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>
-                                      <!-- src/main/webapp/WEB-INF/wsdl/HelloWorld.wsdl -->
-                                      src/main/webapp/WEB-INF/wsdl/AdmissionService.wsdl
+                                      <!-- src/main/webapp/WEB-INF/wsdl/HelloWorld.wsdl  -->
+                                     <!-- src/main/webapp/WEB-INF/wsdl/AdmissionService.wsdl  -->
+                                   src/main/webapp/WEB-INF/wsdl/sec/SecurityService.wsdl   
                                     </wsdl>
                                     <wsdlLocation>
-                                     <!--   classpath:HelloWorld.wsdl -->
-                                     classpath:AdmissionService.wsdl
+                                  <!-- classpath:HelloWorld.wsdl  -->
+                                  classpath:SecurityService.wsdl  
                                     </wsdlLocation>
                                 </wsdlOption>
                             </wsdlOptions>
@@ -145,6 +153,38 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+  
+             <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.7.0</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+                <useIncrementalCompilation>false</useIncrementalCompilation>
+                <compilerArgs>
+                  <arg>-Xlint:deprecation</arg>
+                  <arg>-Xlint:unchecked</arg>
+                </compilerArgs>
+            </configuration>
+        </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>src</directory>
+                            <targetPath>WEB-INF</targetPath>
+                            <includes>
+                                <include>jax-ws-catalog.xml</include>
+                                <include>wsdl/**</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
             </plugin>
         </plugins>
         <pluginManagement>
@@ -201,19 +241,19 @@
                 
                 
                 <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
-                <configuration>
-                    <includes>
-                        <include>**/*Test*.java</include>
-                    </includes>
-                    <systemPropertyVariables>
-                        <DATABASE_URL>postgres://test:test@localhost:5432/jdatabase</DATABASE_URL>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.12.4</version>
+                    <configuration>
+                        <includes>
+                            <include>**/*Test*.java</include>
+                        </includes>
+                        <systemPropertyVariables>
+                            <DATABASE_URL>postgres://test:test@localhost:5432/jdatabase</DATABASE_URL>
                          
-                    </systemPropertyVariables> 
-                </configuration>
-            </plugin>
+                        </systemPropertyVariables> 
+                    </configuration>
+                </plugin>
                 
             </plugins>
         </pluginManagement>

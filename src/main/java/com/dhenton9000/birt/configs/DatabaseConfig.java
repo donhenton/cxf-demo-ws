@@ -16,8 +16,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -29,6 +31,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //https://github.com/netgloo/spring-boot-samples/tree/master/spring-boot-mysql-jpa-hibernate
 @Configuration
+@PropertySource("classpath:test.properties")
 @EnableJpaRepositories(basePackages = "com.dhenton9000.birt.jpa")
 @EnableTransactionManagement
 public class DatabaseConfig {
@@ -40,6 +43,9 @@ public class DatabaseConfig {
 
     @Autowired
     private DataSource dataSource;
+    
+    @Value("DATABASE_URL")
+    private String dbURL;
  
     @Autowired
     private LocalContainerEntityManagerFactoryBean entityManagerFactory;
@@ -48,6 +54,10 @@ public class DatabaseConfig {
     public DataSource dataSource() {
         URI dbUrl = null;
         String dbString = env.getProperty("DATABASE_URL");
+        if (dbString == null) {
+            dbString = dbURL;
+            
+        }
         log.debug("database string "+dbString);
         try {
              

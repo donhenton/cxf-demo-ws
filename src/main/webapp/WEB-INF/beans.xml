@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
         xmlns:jaxws="http://cxf.apache.org/jaxws"
         xsi:schemaLocation="
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
         http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
         <import resource="classpath:META-INF/cxf/cxf.xml" />
-<!--
-        <jaxws:endpoint 
-          id="helloWorld" 
-          implementor="com.dhenton9000.cxf.demo.ws.HelloWorldPortTypeImpl" 
-          wsdlLocation="WEB-INF/wsdl/HelloWorld.wsdl"
-          address="/HelloWorld" />
-          -->
+        
+        <context:component-scan base-package="com.dhenton9000.birt" />
+
           <jaxws:endpoint 
-          id="admission" 
-          implementor="com.dhenton9000.cxf.demo.ws.AdmissionServicePortTypeImpl" 
-          wsdlLocation="WEB-INF/wsdl/AdmissionService.wsdl"
-          address="/AdmissionService" />
+          id="securityService" 
+          implementor="com.dhenton9000.cxf.ws.sec.SecurityServiceImpl" 
+          wsdlLocation="WEB-INF/wsdl/sec/SecurityService.wsdl"
+          serviceName="SecurityServiceWSDLPortType"
+          address="/SecurityService" />
+          
+          
+          
+          
+          
+          
+          
 </beans>
