@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dhenton9000.cxf.demo.ws;
+package com.dhenton9000.cxf.demo.ws.config;
 
 import com.dhenton9000.birt.jpa.repositories.security.UsersRepository;
 import com.dhenton9000.birt.jpa.service.impl.security.ApplicationsServiceImpl;

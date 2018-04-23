@@ -5,6 +5,7 @@
  */
 package com.dhenton9000.cxf.demo.ws;
 
+import com.dhenton9000.cxf.demo.ws.config.SecurityConfig;
 import com.dhenton9000.birt.configs.DatabaseConfig;
 import com.dhenton9000.birt.jpa.domain.security.Applications;
 import com.dhenton9000.birt.jpa.domain.security.Groups;
@@ -43,7 +44,6 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 @Transactional
 //@EnableAutoConfiguration
 @TestPropertySource(locations = "classpath:test.properties")
-@EnableJpaRepositories(basePackages = "com.dhenton9000.birt.jpa.repositories")
 @ContextConfiguration(loader=AnnotationConfigContextLoader.class, 
 classes={SecurityConfig.class, DatabaseConfig.class})
 public class SecurityTests {
