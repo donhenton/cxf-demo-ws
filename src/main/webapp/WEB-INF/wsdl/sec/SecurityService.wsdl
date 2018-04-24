@@ -53,6 +53,10 @@
         <wsdl:part element="sec:Groups" name="outPutParam"/> 
     </wsdl:message>
     
+    <wsdl:message name="singleUserResponse">
+        <wsdl:part element="sec:Users" name="singleUserResponse"/> 
+    </wsdl:message>
+    
     <wsdl:message name="applicationsResponse">
         <wsdl:part element="sec:ApplicationsList" name="outPutParam"/> 
     </wsdl:message>
@@ -103,7 +107,7 @@
         
         <wsdl:operation name="FindUser">
             <wsdl:input message="tns:findUserId"/>
-            <wsdl:output message="tns:deleteUserResponse"/>
+            <wsdl:output message="tns:singleUserResponse"/>
         </wsdl:operation>
         
         <wsdl:operation name="GetApplications">
