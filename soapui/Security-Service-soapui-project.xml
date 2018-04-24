@@ -5,18 +5,18 @@
       <sec:UsersDelete>
          <login>fff</login>
          <username>fff</username>
-         <id>60</id>
+         <id>62</id>
       </sec:UsersDelete>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/deleteInput"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3d4a1f8f-dbac-4c30-bd3d-f0f0905a2d6f" isOneWay="false" action="" name="FindApplication" bindingOperationName="FindApplication" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="700b48e4-bd00-4b0c-837c-419b1e457449" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header/>
    <soapenv:Body>
-      <findAppId>7</findAppId>
+      <findAppId>9</findAppId>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/FindApplicationRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="02747c45-2a5d-46d8-9ad7-287cf4d02ae3" isOneWay="false" action="" name="FindGroup" bindingOperationName="FindGroup" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e44a2775-16b7-47a9-8341-279225fce777" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService</con:endpoint><con:request><![CDATA[<soapenv:Envelope  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header/>
    <soapenv:Body>
-      <findGroupId>4</findGroupId>
+      <findGroupId>6664</findGroupId>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://dhenton9000.com/sec/contract/SecurityService/SecurityServiceWSDL/FindGroupRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="645984fc-0611-42a2-8a53-e2ecc313ae0c" isOneWay="false" action="" name="FindUser" bindingOperationName="FindUser" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="25f334a4-1eb1-438b-a910-bc4806d424d6" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/cxf-demo-ws/SecurityService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:sec="http://dhenton9000.com/sec/schema/SecurityService" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Header/>
