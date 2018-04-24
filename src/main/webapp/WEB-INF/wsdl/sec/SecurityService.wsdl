@@ -33,11 +33,19 @@
         <wsdl:part element="sec:Applications" name="outPutParam"/> 
     </wsdl:message>
     
-    <wsdl:message name="singleUserResponse">
+    <wsdl:message name="deleteUserResponse">
+        <wsdl:part element="sec:UsersDelete" name="outPutParam"/> 
+    </wsdl:message>
+    
+    <wsdl:message name="deleteUserRequest">
+        <wsdl:part element="sec:UsersDelete" name="inPutParam"/> 
+    </wsdl:message>
+    
+     <wsdl:message name="saveUserResponse">
         <wsdl:part element="sec:Users" name="outPutParam"/> 
     </wsdl:message>
     
-    <wsdl:message name="singleUserRequest">
+    <wsdl:message name="saveUserRequest">
         <wsdl:part element="sec:Users" name="inPutParam"/> 
     </wsdl:message>
     
@@ -55,32 +63,47 @@
         <wsdl:part element="sec:GroupsList" name="groupsStuff"/> 
     </wsdl:message>
     
-    <wsdl:message name="idRequest">
-        <wsdl:part type="xsd:integer" name="idValue"/> 
-    </wsdl:message>
+    <!-- these parameters need to have unique names 
     
+    cxf/server routes to the appropriate handler via soap xml elements
+    so if signatures are the same they need to have unique names
+    
+    -->
+    <wsdl:message name="findUserId">
+        <wsdl:part type="xsd:integer" name="findUserId"/> 
+    </wsdl:message>
+    <wsdl:message name="findGroupId">
+        <wsdl:part type="xsd:integer" name="findGroupId"/> 
+    </wsdl:message>
+    <wsdl:message name="findAppId">
+        <wsdl:part type="xsd:integer" name="findAppId"/> 
+    </wsdl:message>
     
     <wsdl:portType name="SecurityServiceWSDL">
         
         <wsdl:operation name="DeleteUser">
-            <wsdl:input message="tns:singleUserRequest"/>
-            <wsdl:output message="tns:singleUserResponse"/>
+            <wsdl:input  name="deleteInput" message="tns:deleteUserRequest"/>
+            <wsdl:output name="deleteOutput" message="tns:deleteUserResponse"/>
         </wsdl:operation>
         
+         <wsdl:operation name="SaveUser">
+            <wsdl:input name="saveInput" message="tns:saveUserRequest"/>
+            <wsdl:output name="saveOutput" message="tns:saveUserResponse"/>
+        </wsdl:operation>
         
         <wsdl:operation name="FindApplication">
-            <wsdl:input message="tns:idRequest"/>
+            <wsdl:input message="tns:findAppId"/>
             <wsdl:output message="tns:singleApplicationResponse"/>
         </wsdl:operation>
         
         <wsdl:operation name="FindGroup">
-            <wsdl:input message="tns:idRequest"/>
+            <wsdl:input message="tns:findGroupId"/>
             <wsdl:output message="tns:singleGroupResponse"/>
         </wsdl:operation>
         
         <wsdl:operation name="FindUser">
-            <wsdl:input message="tns:idRequest"/>
-            <wsdl:output message="tns:singleUserResponse"/>
+            <wsdl:input message="tns:findUserId"/>
+            <wsdl:output message="tns:deleteUserResponse"/>
         </wsdl:operation>
         
         <wsdl:operation name="GetApplications">
@@ -97,24 +120,32 @@
         </wsdl:operation>
     </wsdl:portType>
     <wsdl:binding name="SecurityServiceWSDLSOAP" type="tns:SecurityServiceWSDL">
-        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
         
         <wsdl:operation name="DeleteUser">
-            <soap:operation soapAction="uri:dhenton9000:SecurityService/DeleteUser"/>
-            <wsdl:input>
+            <soap:operation style="rpc"  soapAction="uri:dhenton9000:SecurityService/DeleteUser"/>
+            <wsdl:input name="deleteInput" >
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output>
+            <wsdl:output name="deleteOutput" >
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="SaveUser">
+            <soap:operation style="rpc"  soapAction="uri:dhenton9000:SecurityService/SaveUser"/>
+            <wsdl:input name="saveInput" >
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="saveOutput" >
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
         
         
         
-        
-        
         <wsdl:operation name="GetApplications">
-            <soap:operation soapAction="uri:dhenton9000:SecurityService/GetApplications"/>
+            <soap:operation style="rpc" soapAction="uri:dhenton9000:SecurityService/GetApplications"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -124,7 +155,7 @@
         </wsdl:operation>
         
         <wsdl:operation name="GetUsers">
-            <soap:operation soapAction="uri:dhenton9000:SecurityService/GetUsers"/>
+            <soap:operation style="rpc" soapAction="uri:dhenton9000:SecurityService/GetUsers"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
@@ -133,7 +164,7 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="GetGroups">
-            <soap:operation soapAction="uri:dhenton9000:SecurityService/GetGroups"/>
+            <soap:operation style="rpc" soapAction="uri:dhenton9000:SecurityService/GetGroups"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

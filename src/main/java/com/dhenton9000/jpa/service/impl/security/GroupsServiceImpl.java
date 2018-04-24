@@ -83,7 +83,8 @@ public class GroupsServiceImpl implements GroupsService {
 
         Query q = this.entityManager.createQuery(qString);
         q.setParameter("id", appId);
-        return q.getResultList();
+     
+        return (List<Groups>) q.getResultList();
     }
 
     @Override
@@ -102,7 +103,7 @@ public class GroupsServiceImpl implements GroupsService {
 
         Query q = this.entityManager.createQuery(qString);
         q.setParameter("id", groupId);
-        return q.getResultList();
+        return (List<Applications>) q.getResultList();
 
     }
     
@@ -122,7 +123,7 @@ public class GroupsServiceImpl implements GroupsService {
 
         Query q = this.entityManager.createQuery(qString);
         q.setParameter("id", groupId);
-        return q.getResultList();
+        return (List<Users>) q.getResultList();
 
     }
 

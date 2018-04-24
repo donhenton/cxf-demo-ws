@@ -4,6 +4,20 @@
 
     
     <element name="Users" type="tns:usersType"/>
+    <element name="UsersDelete" type="tns:usersType"/>
+    <!-- 
+    
+    wsdl requires signatures on functions to be different since it uses those
+    signatures to route
+    
+    saveUser(user)
+    deleteUser(user)
+    
+    to distinguish create a unique named element here pointing to a common
+    type
+    
+    
+    -->
     <element name="Groups" type="tns:groupsType"/>
     <element name="Applications" type="tns:applicationsType"/>
     <element name="ApplicationsList" type="tns:applicationsListType"/>
